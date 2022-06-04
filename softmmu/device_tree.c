@@ -29,7 +29,13 @@
 
 #include <libfdt.h>
 
+#define SMOL
+
+#ifndef SMOL
 #define FDT_MAX_SIZE  0x100000
+#else
+#define FDT_MAX_SIZE (8*1024)
+#endif
 
 void *create_device_tree(int *sizep)
 {
